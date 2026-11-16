@@ -4,1225 +4,208 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>André França — Senior QA Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="description" content="Senior QA Engineer with 20+ years building quality into complex systems, from aircraft avionics to 5G carrier certification. Test automation, Python, Android and process engineering.">
+<meta name="author" content="André França">
+<link rel="canonical" href="https://androvisck.github.io/">
+<meta name="theme-color" content="#F0F4F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B2631" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="André França — Senior QA Engineer">
+<meta property="og:description" content="Senior QA Engineer with 20+ years building quality into complex systems, from aircraft avionics to 5G carrier certification. Test automation, Python, Android and process engineering.">
+<meta property="og:url" content="https://androvisck.github.io/">
+<meta property="og:image" content="https://androvisck.github.io/og-image.png">
+<meta property="og:image:alt" content="André França — Senior QA Engineer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://androvisck.github.io/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231B2631'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='bold' fill='%23A5C8D6' text-anchor='middle'%3EAF%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"André França","jobTitle":"Senior QA Engineer","email":"mailto:androvisck@gmail.com","url":"https://androvisck.github.io/","address":{"@type":"PostalAddress","addressLocality":"Manaus","addressRegion":"AM","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/andrejfranca","https://github.com/androvisck","https://orcid.org/0000-0003-0002-6561"]}</script>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #111118;
-    --surface2: #18181f;
-    --border: #2a2a35;
-    --accent: #00e5a0;
-    --accent2: #5b8fff;
-    --accent3: #ff6b6b;
-    --text: #e8e8f0;
-    --muted: #8b9bb0;
-    --tag-bg: #1a1a28;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* NOISE OVERLAY */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.4;
-  }
-
-  /* GRID BACKGROUND */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    padding: 1.2rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    background: rgba(10,10,15,0.85);
-    backdrop-filter: blur(12px);
-  }
-
-  .nav-brand {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
-    color: var(--accent);
-    letter-spacing: -0.02em;
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--accent); }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 8rem 3rem 5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-  }
-
-  .hero-label {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .hero-label::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  h1 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    margin-bottom: 0.3rem;
-  }
-
-  h1 .italic {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-title-sub {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    font-weight: 400;
-    color: var(--muted);
-    margin-bottom: 2rem;
-    letter-spacing: -0.01em;
-  }
-
-  .hero-desc {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.8;
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0a0f;
-    padding: 0.75rem 1.75rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 400;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,229,160,0.25);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    padding: 0.75rem 1.75rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* HERO STATS CARD */
-  .hero-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-  }
-
-  .stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .stat-item {}
-
-  .stat-number {
-    font-family: 'Syne', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--accent);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-top: 0.3rem;
-  }
-
-  .cert-badges {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .cert-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.6rem 0.9rem;
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    font-size: 11px;
-    color: var(--text);
-    letter-spacing: 0.04em;
-  }
-
-  .cert-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-
-  /* SECTION LAYOUT */
-  section {
-    position: relative;
-    z-index: 1;
-    padding: 6rem 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 4rem;
-  }
-
-  .section-num {
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-  }
-
-  h2 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    letter-spacing: -0.03em;
-    color: var(--text);
-  }
-
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .skill-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 1.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .skill-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-  }
-
-  .skill-card-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .skill-icon {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-
-  .skill-card-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text);
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .tag {
-    padding: 0.25rem 0.6rem;
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.03em;
-    transition: color 0.2s, border-color 0.2s;
-  }
-
-  .tag.accent { border-color: rgba(0,229,160,0.3); color: var(--accent); }
-  .tag.blue { border-color: rgba(91,143,255,0.3); color: var(--accent2); }
-  .tag.red { border-color: rgba(255,107,107,0.3); color: var(--accent3); }
-
-  /* EXPERIENCE */
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .timeline-item {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 2.5rem;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-
-  .timeline-item:last-child { border-bottom: none; }
-
-  .timeline-left {}
-
-  .timeline-period {
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-
-  .timeline-company {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-  }
-
-  .timeline-role {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.8rem;
-    letter-spacing: -0.01em;
-  }
-
-  .timeline-desc {
-    color: var(--muted);
-    font-size: 12.5px;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-
-  /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .project-card:hover {
-    border-color: var(--accent2);
-    transform: translateY(-4px);
-  }
-
-  .project-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent2), transparent);
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .project-card:hover::after { opacity: 1; }
-
-  .project-venue {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent2);
-    margin-bottom: 0.75rem;
-  }
-
-  .project-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-  }
-
-  .project-desc {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-  }
-
-  /* SOFT SKILLS */
-  .soft-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1px;
-    border: 1px solid var(--border);
-    background: var(--border);
-  }
-
-  .soft-item {
-    background: var(--surface);
-    padding: 1.75rem 1.5rem;
-    transition: background 0.2s;
-  }
-
-  .soft-item:hover { background: var(--surface2); }
-
-  .soft-item-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .soft-item-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    color: var(--text);
-    margin-bottom: 0.25rem;
-  }
-
-  .soft-item-desc {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  /* EDUCATION */
-  .edu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .edu-card {
-    border: 1px solid var(--border);
-    padding: 1.75rem;
-    background: var(--surface);
-  }
-
-  .edu-year {
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  .edu-degree {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--text);
-    margin-bottom: 0.25rem;
-  }
-
-  .edu-school {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  /* CONTACT */
-  .contact-wrapper {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 300px; height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,229,160,0.08), transparent 70%);
-    pointer-events: none;
-  }
-
-  .contact-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2rem, 4vw, 3rem);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    color: var(--text);
-    margin-bottom: 1rem;
-  }
-
-  .contact-sub {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--text);
-    font-size: 12px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .contact-link:hover {
-    border-color: var(--accent);
-    transform: translateX(4px);
-  }
-
-  .contact-link-label {
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.1rem;
-  }
-
-  /* FOOTER */
-  footer {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid var(--border);
-    padding: 2rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  footer p {
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  footer .accent-text { color: var(--accent); }
-
-  /* SCROLL ANIMATIONS */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* AVAILABLE BANNER */
-  .available-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.35rem 0.9rem;
-    background: rgba(0,229,160,0.08);
-    border: 1px solid rgba(0,229,160,0.25);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    margin-bottom: 1.5rem;
-  }
-
-  .pulse-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
-  }
-
-  /* MOBILE */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    section { padding: 4rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 4rem; }
-    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    .contact-wrapper { grid-template-columns: 1fr; padding: 2.5rem; gap: 2rem; }
-    footer { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
-  }
+/* Palette: #1B2631 #3F4E4F #A5C8D6 #F0F4F8 #D9E4E0. --sf/--alt in dark mode are derived neutrals. */
+:root{--bg:#F0F4F8;--sf:#FFFFFF;--alt:#D9E4E0;--bd:#A5C8D6;--hd:#1B2631;--tx:#1B2631;--mu:#3F4E4F;--on:#F0F4F8;--sh:0 6px 24px rgba(27,38,49,.09)}
+@media(prefers-color-scheme:dark){:root{--bg:#1B2631;--sf:#222F3B;--alt:#17212A;--bd:#3F4E4F;--hd:#A5C8D6;--tx:#F0F4F8;--mu:#D9E4E0;--on:#1B2631;--sh:0 6px 24px rgba(0,0,0,.4)}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--hd)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--hd);outline-offset:2px;border-radius:4px}
+h1,h2,h3{color:var(--hd);line-height:1.25}
+.container{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;z-index:200;background:var(--hd);color:var(--on);padding:.6rem 1rem}
+.skip:focus{left:0}
+.site-header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.site-header.scrolled{border-bottom-color:var(--bd);box-shadow:var(--sh)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;color:var(--hd)}
+.brand .mono{display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:8px;background:var(--hd);color:var(--on);font-size:.9rem}
+.nav-toggle{background:none;border:1px solid var(--bd);color:var(--hd);font:inherit;font-weight:600;font-size:.85rem;padding:.4rem .8rem;border-radius:8px;cursor:pointer}
+.nav-menu{list-style:none;display:none;flex-direction:column;width:100%;gap:.25rem;padding:.5rem 0 .9rem}
+.nav-menu.open{display:flex}
+.nav-menu a{display:block;text-decoration:none;font-weight:600;padding:.55rem .8rem;border-radius:8px;border-left:3px solid transparent}
+.nav-menu a:hover{background:var(--alt)}
+.nav-menu a[aria-current="true"]{border-left-color:var(--hd);background:var(--alt)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:700;font-size:.95rem;text-decoration:none;padding:.7rem 1.3rem;border-radius:10px;border:2px solid var(--hd);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-cta{background:var(--hd);color:var(--on);box-shadow:var(--sh)}
+.btn-outline{background:transparent;color:var(--hd)}
+.btn-outline:hover{background:var(--alt)}
+.btn-ghost{font-weight:700;text-decoration:none}
+.btn-ghost:hover{text-decoration:underline}
+.hero{padding:3.5rem 0 3rem;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(60rem 30rem at 85% -10%,color-mix(in srgb,var(--bd) 45%,transparent),transparent 70%)}
+.hero .container{position:relative}
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--bd);color:#1B2631;font-weight:700;font-size:.8rem;padding:.35rem .9rem;border-radius:999px}
+.badge i{width:.5rem;height:.5rem;border-radius:50%;background:#1B2631;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hero h1{font-size:clamp(2.1rem,6vw,3.4rem);margin:.9rem 0 .2rem;letter-spacing:-.02em}
+.role{font-size:clamp(1.05rem,2.6vw,1.35rem);font-weight:700;color:var(--mu)}
+.tagline{margin-top:.5rem;font-size:.92rem;color:var(--mu);font-weight:600}
+.bio{margin-top:1rem;max-width:60ch;font-size:1.02rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem;align-items:center}
+.links{display:flex;gap:1rem;margin-left:.25rem}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;margin-top:2.4rem}
+.stat{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:1.1rem 1rem;box-shadow:var(--sh);text-align:center}
+.num{font-size:clamp(1.7rem,5vw,2.3rem);font-weight:800;color:var(--hd);font-variant-numeric:tabular-nums}
+.label{font-size:.82rem;font-weight:600;color:var(--mu)}
+section{padding:3.5rem 0}
+.alt{background:var(--alt)}
+.section-head{margin-bottom:2rem}
+.kicker{display:block;font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:.3rem}
+.section-head h2{font-size:clamp(1.5rem,4vw,2rem)}
+.section-head p{margin-top:.5rem;max-width:65ch}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal.visible{opacity:1;transform:none}
+.skill-group{margin-bottom:1.6rem}
+.skill-group h3{font-size:1rem;margin-bottom:.7rem}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none}
+.chip{background:var(--alt);border:1px solid var(--bd);font-size:.83rem;font-weight:600;padding:.3rem .75rem;border-radius:999px}
+.alt .chip,.card .chip{background:var(--sf)}
+.card .chip{background:var(--alt)}
+.timeline{list-style:none;position:relative;padding-left:1.6rem}
+.timeline::before{content:"";position:absolute;left:.45rem;top:.4rem;bottom:.4rem;width:3px;border-radius:3px;background:var(--bd)}
+.timeline>li{position:relative;margin-bottom:1.6rem}
+.timeline>li::before{content:"";position:absolute;left:-1.6rem;top:.55rem;width:.95rem;height:.95rem;border-radius:50%;background:var(--sf);border:3px solid var(--hd)}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:1.3rem;box-shadow:var(--sh);transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
+.job-head{display:flex;flex-wrap:wrap;gap:.2rem 1rem;align-items:baseline;justify-content:space-between}
+.job-head h3{font-size:1.1rem}
+.company{color:var(--mu);font-weight:700;font-size:.92rem}
+.period{font-size:.78rem;font-weight:700;color:var(--mu);border:1px solid var(--bd);border-radius:999px;padding:.12rem .7rem;white-space:nowrap}
+.job-desc{margin:.7rem 0 .9rem}
+.job-desc li{margin:.3rem 0 .3rem 1.1rem}
+.grid2{display:grid;grid-template-columns:1fr;gap:1.3rem}
+.venue{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);border:1px solid var(--bd);border-radius:999px;padding:.15rem .75rem;margin-bottom:.7rem}
+.project h3{font-size:1.15rem;margin-bottom:.8rem}
+.par{list-style:none;display:grid;gap:.6rem;margin-bottom:1rem}
+.par li{display:grid;grid-template-columns:5.2rem 1fr;gap:.6rem;align-items:start}
+.step{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--on);background:var(--hd);border-radius:6px;padding:.22rem .4rem;text-align:center}
+.par p{font-size:.94rem}
+.project-links{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:.9rem;font-size:.9rem;font-weight:700}
+.live{border-left:5px solid var(--hd)}
+.learn{display:grid;gap:1.3rem}
+.learn-feature{background:var(--sf);border:1px solid var(--bd);border-left:5px solid var(--hd);border-radius:14px;padding:1.3rem}
+.learn-feature p{margin-top:.4rem;max-width:65ch}
+.edu-item{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
+.edu-year{font-size:.78rem;font-weight:800;color:var(--mu);white-space:nowrap;border:1px solid var(--bd);border-radius:8px;padding:.25rem .6rem;background:var(--alt)}
+.edu-item h3{font-size:1rem}
+.school{color:var(--mu);font-weight:600;font-size:.9rem}
+.certs{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem;list-style:none}
+.cert{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:.5rem .9rem;font-size:.86rem;font-weight:700;color:var(--hd);box-shadow:var(--sh)}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:1.6rem;align-items:start}
+.contact-links{list-style:none;display:grid;gap:.7rem}
+.contact-links a{display:flex;justify-content:space-between;gap:1rem;background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:.8rem 1rem;text-decoration:none;font-weight:700}
+.contact-links a:hover{border-color:var(--hd)}
+.handle{color:var(--mu);font-weight:600;font-size:.86rem}
+footer{border-top:1px solid var(--bd);padding:1.6rem 0;font-size:.86rem;color:var(--mu)}
+footer .container{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;justify-content:space-between}
+@media(min-width:720px){
+.nav-toggle{display:none}
+.nav-menu{display:flex;flex-direction:row;width:auto;padding:0;gap:.2rem}
+.nav-menu a{padding:.45rem .8rem;border-left:0;border-bottom:3px solid transparent;border-radius:8px 8px 0 0}
+.nav-menu a[aria-current="true"]{border-bottom-color:var(--hd);background:none}
+.stats{grid-template-columns:repeat(4,1fr)}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 2.2rem}
+.grid2{grid-template-columns:1fr 1fr}
+.contact-grid{grid-template-columns:1.2fr 1fr}
+section{padding:4.5rem 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media print{.site-header,.skip{display:none}.reveal{opacity:1;transform:none}section{padding:1.5rem 0}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a class="nav-brand" href="#">androvisck.github.io/</a>
-  <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Research</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="available-pill">
-        <span class="pulse-dot"></span>
-        Open to new opportunities
-      </div>
-      <div class="hero-label">Senior QA Engineer</div>
-      <h1 style="color: var(--accent)">André<br>França</h1>
-      <p class="hero-title-sub">Quality Strategy · Test Automation · Telecom · Mobile Device · Android · Product Engineer</p>
-      <p class="hero-desc">
-        20+ years building quality into complex systems — from aircraft avionics to 5G carrier certification.
-        Now seeking new challenges beyond niche telecom, bringing deep expertise in test automation,
-        Python, Android, and process engineering to broader software teams.
-      </p>
-      <div class="hero-cta">
-        <a class="btn-primary" href="#contact">Get in touch</a>
-        <a class="btn-outline" href="https://linkedin.com/in/andrejfranca" target="_blank">LinkedIn ↗</a>
-        <a class="btn-outline" href="https://github.com/androvisck" target="_blank">GitHub ↗</a>
-      </div>
-    </div>
-    <div class="hero-card fade-in">
-      <div class="stat-grid">
-        <div class="stat-item">
-          <div class="stat-number">20+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">30%</div>
-          <div class="stat-label">Delivery Time Reduced</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">5</div>
-          <div class="stat-label">ACM Publications</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">4</div>
-          <div class="stat-label">Int'l Conferences</div>
-        </div>
-      </div>
-      <div class="cert-badges">
-        <div class="cert-badge"><span class="cert-dot"></span> ISTQB CTFL-AT — Agile Tester</div>
-        <div class="cert-badge"><span class="cert-dot"></span> ISTQB CTFL — Foundation Level</div>
-        <div class="cert-badge"><span class="cert-dot"></span> MSc Systems Engineering · UPE</div>
-        <div class="cert-badge"><span class="cert-dot"></span> MBA Project Mgmt & Agile · Descomplica</div>
-      </div>
-    </div>
-  </div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" id="top"><div class="container">
+<nav class="nav" aria-label="Primary">
+<a class="brand" href="#top" aria-label="André França — home"><span class="mono" aria-hidden="true">AF</span>André&nbsp;França</a>
+<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+<ul class="nav-menu" id="nav-menu">
+<li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#learning">Learning</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav></div></header>
+<main id="main">
+<section class="hero" aria-labelledby="hero-title"><div class="container">
+<p class="badge reveal"><i aria-hidden="true"></i>Open to new opportunities</p>
+<h1 id="hero-title" class="reveal">André França</h1>
+<p class="role reveal">Senior QA Engineer</p>
+<p class="tagline reveal">Quality Strategy · Test Automation · Telecom · Mobile · Android</p>
+<p class="bio reveal">20+ years building quality into complex systems — from aircraft avionics to 5G carrier certification. Test automation, Python, Android and process engineering for teams that ship reliable software.</p>
+<div class="actions reveal">
+<a class="btn btn-cta" href="#contact">Get in touch</a>
+<a class="btn btn-outline" href="Andre_Jose_de_Franca_ATS.pdf" download>Download CV</a>
+<span class="links"><a class="btn-ghost" href="https://www.linkedin.com/in/andrejfranca" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn-ghost" href="https://github.com/androvisck" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
 </div>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2>Skills</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="skills-grid">
-    <div class="skill-card fade-in">
-      <div class="skill-card-header">
-        <div class="skill-icon">⚙️</div>
-        <div class="skill-card-title">Test Automation</div>
-      </div>
-      <div class="tags">
-        <span class="tag accent">Python</span>
-        <span class="tag accent">UIAutomator2</span>
-        <span class="tag accent">ADB</span>
-        <span class="tag">Appium</span>
-        <span class="tag">Cypress</span>
-        <span class="tag">Robot Framework</span>
-        <span class="tag">Jupyter Notebook</span>
-      </div>
-    </div>
-
-    <div class="skill-card fade-in">
-      <div class="skill-card-header">
-        <div class="skill-icon">🧪</div>
-        <div class="skill-card-title">QA & Test Management</div>
-      </div>
-      <div class="tags">
-        <span class="tag accent">STLC</span>
-        <span class="tag accent">SDLC</span>
-        <span class="tag accent">Jira</span>
-        <span class="tag accent">Confluence</span>
-        <span class="tag accent">Zephyr Scale</span>
-        <span class="tag accent">Defect Management</span>
-        <span class="tag accent">Test Case Design</span>
-        <span class="tag accent">Log Analysis</span>
-      </div>
-    </div>
-
-    <div class="skill-card fade-in">
-      <div class="skill-card-header">
-        <div class="skill-icon">💻</div>
-        <div class="skill-card-title">Programming & Data</div>
-      </div>
-      <div class="tags">
-        <span class="tag blue">Python</span>
-        <span class="tag blue">Rust</span>
-        <span class="tag blue">Git / GitHub</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">AOSP</span>
-        <span class="tag">Linux</span>
-        <span class="tag">CI/CD</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Power BI</span>
-        <span class="tag">Data Science</span>
-      </div>
-    </div>
-
-    <div class="skill-card fade-in">
-      <div class="skill-card-header">
-        <div class="skill-icon">📡</div>
-        <div class="skill-card-title">Telecommunications</div>
-      </div>
-      <div class="tags">
-        <span class="tag red">4G / 5G</span>
-        <span class="tag red">NTN</span>
-        <span class="tag red">IMS</span>
-        <span class="tag red">VoLTE</span>
-        <span class="tag red">VoWiFi</span>
-        <span class="tag red">RTT</span>
-        <span class="tag red">Carrier Certification</span>
-        <span class="tag red">QXDM</span>
-        <span class="tag red">ELT</span>
-        <span class="tag red">Shannon</span>
-      </div>
-    </div>
-
-    <div class="skill-card fade-in">
-      <div class="skill-card-header">
-        <div class="skill-icon">🔄</div>
-        <div class="skill-card-title">Agile & Delivery</div>
-      </div>
-      <div class="tags">
-        <span class="tag red">Scrum</span>
-        <span class="tag red">Kanban</span>
-        <span class="tag red">Project Management</span>
-        <span class="tag red">Technical Training</span>
-        <span class="tag red">Process Improvement</span>
-      </div>
-    </div>
-
-    <div class="skill-card fade-in">
-      <div class="skill-card-header">
-        <div class="skill-icon">🧠</div>
-        <div class="skill-card-title">Soft Skills</div>
-      </div>
-      <div class="tags">
-        <span class="tag blue">Critical Thinking</span>
-        <span class="tag blue">Analytical Thinking</span>
-        <span class="tag blue">Attention to Detail</span>
-        <span class="tag blue">Problem Solving</span>
-        <span class="tag blue">Cross-functional Collaboration</span>
-        <span class="tag blue">Technical Writing</span>
-        <span class="tag blue">Presentation</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <h2>Experience</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="timeline">
-    <div class="timeline-item fade-in">
-      <div class="timeline-left">
-        <div class="timeline-period">Jun 2024 — Present</div>
-        <div class="timeline-company">Sidia / Samsung R&D</div>
-      </div>
-      <div>
-        <div class="timeline-role">Senior QA Engineer</div>
-        <p class="timeline-desc">Led test automation strategy using Python, UIAutomator2 and ADB for Samsung Galaxy device validation, achieving 30%+ reduction in team delivery time. Bridged communication between developers and Brazilian carriers (Vivo, Claro, TIM). Co-authored 5 peer-reviewed ACM papers presented at conferences in Tokyo, Kyoto, Derby and Kobe.</p>
-        <div class="tags">
-          <span class="tag accent">Python</span>
-          <span class="tag accent">UIAutomator2</span>
-          <span class="tag">ADB</span>
-          <span class="tag">Jira</span>
-          <span class="tag">Zephyr Scale</span>
-          <span class="tag">5G/NTN</span>
-          <span class="tag">VoLTE/VoWiFi</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-left">
-        <div class="timeline-period">Apr 2022 — Jun 2024</div>
-        <div class="timeline-company">Sidia / Samsung R&D</div>
-      </div>
-      <div>
-        <div class="timeline-role">Mid QA Engineer</div>
-        <p class="timeline-desc">Developed and executed manual and automated test cases for Android OS on Samsung Galaxy devices across multiple carrier certification cycles. Built internal automation scripts that eliminated repetitive manual tasks, reducing time-to-market KPIs and increasing defect detection coverage.</p>
-        <div class="tags">
-          <span class="tag">Android Testing</span>
-          <span class="tag">Test Automation</span>
-          <span class="tag">Carrier Certification</span>
-          <span class="tag">Defect Management</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-left">
-        <div class="timeline-period">Apr 2020 — Apr 2022</div>
-        <div class="timeline-company">Sidia / Samsung R&D</div>
-      </div>
-      <div>
-        <div class="timeline-role">Junior QA Engineer</div>
-        <p class="timeline-desc">Executed structured test cases for Samsung Galaxy device validation under carrier acceptance testing cycles. Diagnosed complex network failures using chipset log tools (QXDM, ELT, Shannon) in telecommunication laboratory environments.</p>
-        <div class="tags">
-          <span class="tag">4G/5G Testing</span>
-          <span class="tag">IMS</span>
-          <span class="tag">QXDM</span>
-          <span class="tag">ELT</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-left">
-        <div class="timeline-period">Oct 2018 — Apr 2019</div>
-        <div class="timeline-company">Huawei Brazil</div>
-      </div>
-      <div>
-        <div class="timeline-role">Product Technology Analyst</div>
-        <p class="timeline-desc">Engineered and validated mobile station infrastructure for 4G LTE deployments. Bridged cross-functional coordination between design, civil, installation, and network management teams. Delivered technical training to regional field teams.</p>
-        <div class="tags">
-          <span class="tag">4G LTE</span>
-          <span class="tag">Infrastructure</span>
-          <span class="tag">Technical Training</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-left">
-        <div class="timeline-period">Sep 2015 — Dec 2016</div>
-        <div class="timeline-company">Huawei Brazil</div>
-      </div>
-      <div>
-        <div class="timeline-role">Intern</div>
-        <p class="timeline-desc">Supported site design and coverage analysis activities for 4G LTE network expansion and RAN Sharing projects. Project documentation and coordinated between planning, civil, and RF</p>
-        <div class="tags">
-          <span class="tag">RAN Sharing</span>
-          <span class="tag">Infrastructure</span>
-          <span class="tag">Technical Training</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-left">
-        <div class="timeline-period">Jun 2005 — Nov 2014</div>
-        <div class="timeline-company">Brazilian Air Force</div>
-      </div>
-      <div>
-        <div class="timeline-role">Electronics Technician</div>
-        <p class="timeline-desc">9+ years maintaining aircraft avionics and mission-critical electronic systems — communication, navigation, flight instrumentation, and radar. Coordinated and delivered advanced technical training programs, developing course materials that improved team operational readiness.</p>
-        <div class="tags">
-          <span class="tag">Avionics</span>
-          <span class="tag">Electronic Systems</span>
-          <span class="tag">Technical Training</span>
-          <span class="tag">Instrumentation</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESEARCH / PROJECTS -->
-<section id="projects">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <h2>Research & Projects</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="projects-grid">
-    <div class="project-card fade-in">
-      <div class="project-venue">ACM · ICSIE 2026 — Kobe, Japan</div>
-      <div class="project-title">RTT over IMS Validation Strategy</div>
-      <p class="project-desc">Comprehensive test strategy for validating Real-Time Text (RTT) over IMS, ensuring compliance with accessibility standards and carrier certification for Samsung Android devices. Conducted end-to-end functional, integration, and interoperability testing across 4G/5G environments.</p>
-      <div class="tags">
-        <span class="tag">RTT</span>
-        <span class="tag">IMS</span>
-        <span class="tag">Accessibility</span>
-        <span class="tag">5G</span>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-venue">ACM · ICSIE 2026 — Kobe, Japan</div>
-      <div class="project-title">ATHENA — Power BI QA Metrics System</div>
-      <p class="project-desc">Designed and implemented a Power BI-based data access and visualization system for QA and engineering metrics. Centralized test execution data, defect metrics, and certification KPIs into real-time dashboards — directly improving audit readiness and multi-stakeholder transparency.</p>
-      <div class="tags">
-        <span class="tag blue">Power BI</span>
-        <span class="tag blue">Data Visualization</span>
-        <span class="tag">KPI Tracking</span>
-        <span class="tag">STLC</span>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-venue">ACM · WSSE 2023 (Tokyo) & WSSE 2024 (Kyoto)</div>
-      <div class="project-title">LinkDoc — Automated Carrier Documentation</div>
-      <p class="project-desc">End-to-end automated pipeline for generating, validating, and delivering technical documentation required for carrier homologation of Samsung Android devices in Latin America. Measurably reduced delivery time and error rates across Vivo, Claro, and TIM certification cycles.</p>
-      <div class="tags">
-        <span class="tag accent">Python</span>
-        <span class="tag accent">Automation</span>
-        <span class="tag">Carrier Cert.</span>
-        <span class="tag">LATAM</span>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-venue">ACM · ICSIE 2024 — Derby, UK</div>
-      <div class="project-title">New QA Framework for IMS Services</div>
-      <p class="project-desc">Identified gaps in existing test processes for IMS services including VoLTE, VoWiFi, and RCS on 4G/5G smartphones. Designed and validated a new testing strategy adopted as reference framework for future IMS testing within the Samsung carrier certification pipeline.</p>
-      <div class="tags">
-        <span class="tag red">VoLTE</span>
-        <span class="tag red">VoWiFi</span>
-        <span class="tag red">RCS</span>
-        <span class="tag">Framework Design</span>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-venue">ENCOM 2024 — Natal, Brazil</div>
-      <div class="project-title">IMS Test Personalization Process Improvement</div>
-      <p class="project-desc">Analyzed and restructured the test personalization process for IMS services on mobile devices. Proposed a systematic improvement model combining test automation techniques and process redesign, reducing manual effort in per-certification cycles for Brazilian carriers.</p>
-      <div class="tags">
-        <span class="tag">Process Improvement</span>
-        <span class="tag">IMS</span>
-        <span class="tag">Automation</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOFT SKILLS DEEP DIVE -->
-<section>
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2>What I Bring</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="soft-grid">
-    <div class="soft-item fade-in">
-      <div class="soft-item-icon">🔍</div>
-      <div class="soft-item-name">Analytical Thinking</div>
-      <div class="soft-item-desc">Dissecting complex failures across software, network, and hardware layers with structured diagnostic approaches.</div>
-    </div>
-    <div class="soft-item fade-in">
-      <div class="soft-item-icon">⚡</div>
-      <div class="soft-item-name">Process Engineering</div>
-      <div class="soft-item-desc">Consistently finding automation opportunities that eliminate repetitive work and accelerate delivery cycles.</div>
-    </div>
-    <div class="soft-item fade-in">
-      <div class="soft-item-icon">🌐</div>
-      <div class="soft-item-name">Cross-team Collaboration</div>
-      <div class="soft-item-desc">Bridging developers, carriers, TAMs and business stakeholders across international and multilingual environments.</div>
-    </div>
-    <div class="soft-item fade-in">
-      <div class="soft-item-icon">📝</div>
-      <div class="soft-item-name">Technical Writing</div>
-      <div class="soft-item-desc">Published author of 5 peer-reviewed ACM papers. Strong documentation skills from carrier certification standards.</div>
-    </div>
-    <div class="soft-item fade-in">
-      <div class="soft-item-icon">🎯</div>
-      <div class="soft-item-name">Attention to Detail</div>
-      <div class="soft-item-desc">Honed over years of aviation maintenance and telecom certification where precision is non-negotiable.</div>
-    </div>
-    <div class="soft-item fade-in">
-      <div class="soft-item-icon">🏫</div>
-      <div class="soft-item-name">Knowledge Transfer</div>
-      <div class="soft-item-desc">Experienced trainer and instructor — from Air Force personnel to R&D engineering teams across multiple organizations.</div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-header">
-    <span class="section-num">05</span>
-    <h2>Education</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="edu-grid">
-    <div class="edu-card fade-in">
-      <div class="edu-year">2025</div>
-      <div class="edu-degree">MBA — Project Management & Agile</div>
-      <div class="edu-school">Descomplica University Center</div>
-    </div>
-    <div class="edu-card fade-in">
-      <div class="edu-year">2017 — 2019</div>
-      <div class="edu-degree">MSc Systems Engineering</div>
-      <div class="edu-school">University of Pernambuco (UPE)</div>
-    </div>
-    <div class="edu-card fade-in">
-      <div class="edu-year">2011 — 2016</div>
-      <div class="edu-degree">BEng Telecommunications Engineering</div>
-      <div class="edu-school">University of Pernambuco (UPE)</div>
-    </div>
-    <div class="edu-card fade-in">
-      <div class="edu-year">2002 — 2006</div>
-      <div class="edu-degree">Technician — Telecommunications Technology</div>
-      <div class="edu-school">IFPE — Federal Institute of Pernambuco</div>
-    </div>
-    <div class="edu-card fade-in">
-      <div class="edu-year">2001 — 2003</div>
-      <div class="edu-degree">Technician — Electronics Technology</div>
-      <div class="edu-school">SENAI — National Industrial Apprenticeship</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-header">
-    <span class="section-num">06</span>
-    <h2>Contact</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="contact-wrapper fade-in">
-    <div>
-      <div class="contact-title">Let's work<br><span style="color:var(--accent)">together.</span></div>
-      <p class="contact-sub">
-        I'm actively looking for senior QA, test automation, or quality engineering roles beyond the telecom niche —
-        fintech, SaaS, mobile platforms, or any team that values rigorous quality strategy.
-        Available for remote or relocation.
-      </p>
-    </div>
-    <div class="contact-links">
-      <a class="contact-link" href="mailto:androvisck@gmail.com">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        <div>
-          <span class="contact-link-label">Email</span>
-          androvisck@gmail.com
-        </div>
-      </a>
-      <a class="contact-link" href="https://linkedin.com/in/andrejfranca" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        <div>
-          <span class="contact-link-label">LinkedIn</span>
-          linkedin.com/in/andrejfranca
-        </div>
-      </a>
-      <a class="contact-link" href="https://github.com/androvisck" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-        <div>
-          <span class="contact-link-label">GitHub</span>
-          github.com/androvisck
-        </div>
-      </a>
-      <a class="contact-link" href="https://orcid.org/0000-0003-0002-6561" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-        <div>
-          <span class="contact-link-label">ORCID — Research Profile</span>
-          orcid.org/0000-0003-0002-6561
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 <span class="accent-text">André França</span> — Senior QA Engineer</p>
-  <p style="color:var(--muted)">Manaus, AM, Brazil · Open to Remote & Relocation</p>
-</footer>
-
+<div class="stats reveal" role="list" aria-label="Career highlights"><div class="stat" role="listitem"><div class="num" data-to="20" data-suf="+">20+</div><div class="label">Years Experience</div></div><div class="stat" role="listitem"><div class="num" data-to="30" data-suf="%+">30%+</div><div class="label">Delivery Time Reduced</div></div><div class="stat" role="listitem"><div class="num" data-to="5" data-suf="">5</div><div class="label">ACM Publications</div></div><div class="stat" role="listitem"><div class="num" data-to="4" data-suf="">4</div><div class="label">Int’l Conferences</div></div></div>
+</div></section>
+<section id="skills" aria-labelledby="skills-title"><div class="container">
+<div class="section-head reveal"><span class="kicker">01 · Skills</span><h2 id="skills-title">Toolbox &amp; Expertise</h2></div>
+<div class="skills-grid"><div class="skill-group reveal"><h3>Test Automation</h3><ul class="chips" aria-label="Tags"><li class="chip">Python</li><li class="chip">UIAutomator2</li><li class="chip">ADB</li><li class="chip">Appium</li><li class="chip">Cypress</li><li class="chip">Robot Framework</li><li class="chip">Jupyter Notebook</li></ul></div><div class="skill-group reveal"><h3>QA &amp; Test Management</h3><ul class="chips" aria-label="Tags"><li class="chip">STLC</li><li class="chip">SDLC</li><li class="chip">Jira</li><li class="chip">Confluence</li><li class="chip">Zephyr Scale</li><li class="chip">Defect Management</li><li class="chip">Test Case Design</li><li class="chip">Log Analysis</li><li class="chip">Usability Testing (SUS)</li></ul></div><div class="skill-group reveal"><h3>Programming &amp; Data</h3><ul class="chips" aria-label="Tags"><li class="chip">Python</li><li class="chip">Java</li><li class="chip">JavaScript</li><li class="chip">Rust</li><li class="chip">Git / GitHub</li><li class="chip">Linux</li><li class="chip">CI/CD</li><li class="chip">Excel Automation</li><li class="chip">ETL</li><li class="chip">Pandas</li><li class="chip">Power BI</li><li class="chip">Data Science</li></ul></div><div class="skill-group reveal"><h3>Android Platform</h3><ul class="chips" aria-label="Tags"><li class="chip">AOSP (learning)</li><li class="chip">DevTITANS</li><li class="chip">Android OS</li><li class="chip">Samsung Galaxy</li></ul></div><div class="skill-group reveal"><h3>Telecommunications</h3><ul class="chips" aria-label="Tags"><li class="chip">4G / 5G</li><li class="chip">NTN</li><li class="chip">IMS</li><li class="chip">VoLTE</li><li class="chip">VoWiFi</li><li class="chip">RTT</li><li class="chip">Carrier Certification</li><li class="chip">QXDM</li><li class="chip">ELT</li><li class="chip">Shannon</li></ul></div><div class="skill-group reveal"><h3>Agile &amp; Delivery</h3><ul class="chips" aria-label="Tags"><li class="chip">Scrum</li><li class="chip">Kanban</li><li class="chip">Project Management</li><li class="chip">Technical Training</li><li class="chip">Process Improvement</li><li class="chip">Global Software Development</li></ul></div></div></div></section>
+<section id="experience" class="alt" aria-labelledby="exp-title"><div class="container">
+<div class="section-head reveal"><span class="kicker">02 · Experience</span><h2 id="exp-title">Where I’ve Built Quality</h2></div>
+<ol class="timeline"><li class="reveal"><article class="card"><div class="job-head"><h3>Senior QA Engineer <span class="company">· Sidia / Samsung R&amp;D</span></h3><span class="period">Jun 2024 — Present</span></div><ul class="job-desc"><li>Led test automation strategy using Python, UIAutomator2 and ADB for Samsung Galaxy device validation, achieving over 30% reduction in team delivery time.</li><li>Co-authored 5 peer-reviewed ACM papers (first author of 4), presented in Tokyo, Kyoto, Derby and Kobe.</li><li>Co-developed IDeAs, a Python/Java/ADB tool that automates 20 IMS personalization test cases (about 1 minute per device), projecting up to 77% less laboratory time.</li><li>Built ATHENA, a Power BI technical data portal that cut TAM information requests by 75% and response time from 24 h to 4 h.</li><li>Designed the functional test scope for Real-Time Text (RTT) over IMS: 9 laboratory test cases for Latin American carriers.</li><li>Bridged developers, Brazilian carriers (Vivo, Claro, TIM) and Technical Account Managers to align certification requirements and timelines.</li></ul><ul class="chips" aria-label="Tags"><li class="chip">Python</li><li class="chip">UIAutomator2</li><li class="chip">ADB</li><li class="chip">Java</li><li class="chip">Power BI</li><li class="chip">Jira</li><li class="chip">Zephyr Scale</li><li class="chip">IMS</li><li class="chip">VoLTE/VoWiFi</li></ul></article></li><li class="reveal"><article class="card"><div class="job-head"><h3>Mid QA Engineer <span class="company">· Sidia / Samsung R&amp;D</span></h3><span class="period">Apr 2022 — Jun 2024</span></div><ul class="job-desc"><li>Developed and executed manual and automated test cases for Android OS on Samsung Galaxy devices across multiple carrier certification cycles.</li><li>Built internal automation scripts that eliminated repetitive manual tasks, reducing time-to-market KPIs and increasing defect detection coverage.</li><li>Created LinkDoc, an Excel-based automation for carrier documentation: 90% of fields auto-filled in the largest document and delivery time down 58.5% for 9 Brazilian carrier documents (77 h to 32 h); expanded to 13 Latin American countries and 23 carriers.</li></ul><ul class="chips" aria-label="Tags"><li class="chip">Android Testing</li><li class="chip">Excel Automation</li><li class="chip">Carrier Certification</li><li class="chip">Defect Management</li></ul></article></li><li class="reveal"><article class="card"><div class="job-head"><h3>Junior QA Engineer <span class="company">· Sidia / Samsung R&amp;D</span></h3><span class="period">Apr 2020 — Apr 2022</span></div><ul class="job-desc"><li>Executed structured test cases for Samsung Galaxy validation under carrier acceptance testing cycles.</li><li>Diagnosed complex network failures using chipset log tools (QXDM, ELT, Shannon) in telecommunication laboratories.</li></ul><ul class="chips" aria-label="Tags"><li class="chip">4G/5G Testing</li><li class="chip">IMS</li><li class="chip">QXDM</li><li class="chip">ELT</li></ul></article></li><li class="reveal"><article class="card"><div class="job-head"><h3>Product Technology Analyst <span class="company">· Huawei Brazil</span></h3><span class="period">Oct 2018 — Apr 2019</span></div><ul class="job-desc"><li>Engineered and validated mobile station infrastructure for 4G LTE deployments.</li><li>Coordinated design, civil, installation and network management teams to meet go-live deadlines.</li><li>Delivered technical training to regional field teams.</li></ul><ul class="chips" aria-label="Tags"><li class="chip">4G LTE</li><li class="chip">Infrastructure</li><li class="chip">Technical Training</li></ul></article></li><li class="reveal"><article class="card"><div class="job-head"><h3>Intern — Site Design Engineer <span class="company">· Huawei Brazil</span></h3><span class="period">Sep 2015 — Dec 2016</span></div><ul class="job-desc"><li>Supported site design and coverage analysis for 4G LTE expansion and RAN Sharing projects.</li><li>Produced project documentation and coordinated planning, civil and RF optimization teams.</li></ul><ul class="chips" aria-label="Tags"><li class="chip">RAN Sharing</li><li class="chip">Site Design</li><li class="chip">RF</li></ul></article></li><li class="reveal"><article class="card"><div class="job-head"><h3>Electronics Technician <span class="company">· Brazilian Air Force</span></h3><span class="period">Jun 2005 — Nov 2014</span></div><ul class="job-desc"><li>9+ years maintaining aircraft avionics and mission-critical electronic systems: communication, navigation, flight instrumentation and radar.</li><li>Delivered advanced technical training programs and course materials that improved team operational readiness.</li></ul><ul class="chips" aria-label="Tags"><li class="chip">Avionics</li><li class="chip">Electronic Systems</li><li class="chip">Technical Training</li><li class="chip">Instrumentation</li></ul></article></li></ol></div></section>
+<section id="projects" aria-labelledby="proj-title"><div class="container">
+<div class="section-head reveal"><span class="kicker">03 · Projects</span><h2 id="proj-title">Case Studies — Problem → Action → Result</h2><p>Peer-reviewed work from the Sidia / Samsung carrier certification environment. Figures come from the published papers; IDeAs figures are projections.</p></div>
+<div class="grid2"><article class="card project reveal live"><span class="venue">In progress · DevTITANS — UFAM, Motorola &amp; Flextronics</span><h3>AOSP &amp; AI for Development and Testing</h3><ul class="par"><li><span class="step">Focus</span><p>AOSP platform development and AI applied to development and testing.</p></li><li><span class="step">Program</span><p>DevTITANS, with UFAM, Motorola and Flextronics.</p></li><li><span class="step">Status</span><p>Ongoing.</p></li></ul><ul class="chips" aria-label="Tags"><li class="chip">AOSP</li><li class="chip">Android</li><li class="chip">AI-assisted testing</li></ul></article><article class="card project reveal"><span class="venue">ACM · WSSE 2023 (Tokyo) &amp; WSSE 2024 (Kyoto)</span><h3>LinkDoc — Automated Carrier Documentation</h3><ul class="par"><li><span class="step">Problem</span><p>Carrier homologation needed 9 large documents for 3 Brazilian carriers, filled by hand, with frequent rejections and rework.</p></li><li><span class="step">Action</span><p>Excel-based automation linking the internal device database to carrier files; later expanded to 13 Latin American countries and 23 carriers.</p></li><li><span class="step">Result</span><p>90% of fields auto-filled in the largest document; delivery time −58.5% for Brazilian carriers (77 h → 32 h); up to −68% in a Latin America simulation.</p></li></ul><ul class="chips" aria-label="Tags"><li class="chip">Python</li><li class="chip">Excel</li><li class="chip">Automation</li><li class="chip">Carrier Certification</li></ul><p class="project-links"><a href="https://doi.org/10.1145/3631991.3632016" target="_blank" rel="noopener noreferrer">2023 paper · DOI ↗</a> <a href="https://doi.org/10.1145/3698062.3698083" target="_blank" rel="noopener noreferrer">2024 paper · DOI ↗</a></p></article><article class="card project reveal"><span class="venue">ACM · ICSIE 2024 — Derby, UK</span><h3>IDeAs — IMS Deep Assertion</h3><ul class="par"><li><span class="step">Problem</span><p>High demand for IMS tests across 42 Latin American carriers, run manually in a shared laboratory.</p></li><li><span class="step">Action</span><p>Python/Java/ADB tool validating 20 personalization cases automatically; carriers regrouped into 3 groups to reduce laboratory scope.</p></li><li><span class="step">Result</span><p>About 1 minute per automated run; projected −77% laboratory time in a 44-project cycle.</p></li></ul><ul class="chips" aria-label="Tags"><li class="chip">Python</li><li class="chip">Java</li><li class="chip">ADB</li><li class="chip">IMS</li></ul><p class="project-links"><a href="https://doi.org/10.1145/3708635.3708640" target="_blank" rel="noopener noreferrer">Paper · DOI ↗</a></p></article><article class="card project reveal"><span class="venue">ACM · ICSIE 2026 — Kobe, Japan</span><h3>ATHENA — Power BI Technical Data Portal</h3><ul class="par"><li><span class="step">Problem</span><p>Information requests from TAMs and carriers arrived by email and took days to answer.</p></li><li><span class="step">Action</span><p>Power BI portal fed by an ETL of the device database, with role-based access control.</p></li><li><span class="step">Result</span><p>Requests −75% (4 → 1 per month) and response time 24 h → 4 h over 12 months; usability (SUS) ≈ 72, rated good.</p></li></ul><ul class="chips" aria-label="Tags"><li class="chip">Power BI</li><li class="chip">ETL</li><li class="chip">Data Access</li><li class="chip">SUS</li></ul><p class="project-links"><a href="https://doi.org/10.1145/3789595.3789619" target="_blank" rel="noopener noreferrer">Paper · DOI ↗</a></p></article><article class="card project reveal"><span class="venue">ACM · ICSIE 2026 — Kobe, Japan</span><h3>RTT over IMS Validation Scope</h3><ul class="par"><li><span class="step">Problem</span><p>Latin American carriers were introducing Real-Time Text over IMS with no functional test scope.</p></li><li><span class="step">Action</span><p>Requirements study and 9 laboratory test cases: VoLTE/VoWiFi ↔ RTT transitions, emergency calls and call history.</p></li><li><span class="step">Result</span><p>Test scope reached 100% coverage of the RTT service implementation and can be reused for other carriers adopting RTT.</p></li></ul><ul class="chips" aria-label="Tags"><li class="chip">RTT</li><li class="chip">IMS</li><li class="chip">Accessibility</li><li class="chip">VoLTE/VoWiFi</li></ul><p class="project-links"><a href="https://doi.org/10.1145/3789595.3789620" target="_blank" rel="noopener noreferrer">Paper · DOI ↗</a></p></article><article class="card project reveal"><span class="venue">ENCOM 2024 — Natal, Brazil</span><h3>IMS Test Personalization Process Improvement</h3><ul class="par"><li><span class="step">Focus</span><p>Test personalization process for IMS services on mobile devices.</p></li><li><span class="step">Approach</span><p>Test automation techniques combined with process redesign.</p></li><li><span class="step">Outcome</span><p>Reduced manual effort per certification cycle.</p></li></ul><ul class="chips" aria-label="Tags"><li class="chip">Process Improvement</li><li class="chip">IMS</li><li class="chip">Automation</li></ul></article></div></div></section>
+<section id="learning" class="alt" aria-labelledby="learn-title"><div class="container">
+<div class="section-head reveal"><span class="kicker">04 · Currently Learning</span><h2 id="learn-title">Always Leveling Up</h2></div>
+<div class="learn">
+<div class="learn-feature reveal"><h3>AOSP — via DevTITANS</h3><p>Android Open Source Project through the DevTITANS program (UFAM, Motorola and Flextronics), together with AI for development and testing.</p></div>
+<div class="skill-group reveal"><h3>Also practicing</h3><ul class="chips"><li class="chip"><a href="https://github.com/androvisck/learning_rust" target="_blank" rel="noopener noreferrer">Rust ↗</a></li><li class="chip"><a href="https://github.com/androvisck/learning_javascript_alura" target="_blank" rel="noopener noreferrer">JavaScript ↗</a></li></ul></div>
+</div></div></section>
+<section id="education" aria-labelledby="edu-title"><div class="container">
+<div class="section-head reveal"><span class="kicker">05 · Education</span><h2 id="edu-title">Academic Background &amp; Certifications</h2></div>
+<div class="grid2"><div class="card edu-item reveal"><span class="edu-year">2025</span><div><h3>MBA — Project Management &amp; Agile</h3><p class="school">Descomplica University Center</p></div></div><div class="card edu-item reveal"><span class="edu-year">2017 — 2019</span><div><h3>MSc Systems Engineering</h3><p class="school">University of Pernambuco (UPE)</p></div></div><div class="card edu-item reveal"><span class="edu-year">2011 — 2016</span><div><h3>BEng Telecommunications Engineering</h3><p class="school">University of Pernambuco (UPE)</p></div></div><div class="card edu-item reveal"><span class="edu-year">2002 — 2006</span><div><h3>Technician — Telecommunications</h3><p class="school">IFPE — Federal Institute of Pernambuco</p></div></div><div class="card edu-item reveal"><span class="edu-year">2001 — 2003</span><div><h3>Technician — Electronics</h3><p class="school">SENAI — National Industrial Apprenticeship Service</p></div></div></div>
+<ul class="certs reveal" aria-label="Certifications"><li class="cert">ISTQB CTFL — Foundation Level</li><li class="cert">ISTQB CTFL-AT — Agile Tester</li></ul>
+</div></section>
+<section id="contact" class="alt" aria-labelledby="contact-title"><div class="container">
+<div class="section-head reveal"><span class="kicker">06 · Contact</span><h2 id="contact-title">Let’s work together.</h2>
+<p>Looking for senior QA, test automation or quality engineering roles — telecom, mobile platforms, fintech, SaaS or any team that values rigorous quality strategy. Open to remote and relocation.</p></div>
+<div class="contact-grid">
+<div class="reveal"><a class="btn btn-cta" href="mailto:androvisck@gmail.com">Get in touch</a></div>
+<ul class="contact-links reveal">
+<li><a href="mailto:androvisck@gmail.com">Email <span class="handle">androvisck@gmail.com</span></a></li>
+<li><a href="https://www.linkedin.com/in/andrejfranca" target="_blank" rel="noopener noreferrer">LinkedIn <span class="handle">andrejfranca ↗</span></a></li>
+<li><a href="https://github.com/androvisck" target="_blank" rel="noopener noreferrer">GitHub <span class="handle">androvisck ↗</span></a></li>
+<li><a href="https://orcid.org/0000-0003-0002-6561" target="_blank" rel="noopener noreferrer">ORCID <span class="handle">0000-0003-0002-6561 ↗</span></a></li>
+</ul></div></div></section>
+</main>
+<footer><div class="container"><p>© 2026 André França — Senior QA Engineer</p><p>Manaus, AM, Brazil · Open to Remote &amp; Relocation</p></div></footer>
 <script>
-  // Scroll-triggered fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Staggered children within grids
-  document.querySelectorAll('.skills-grid, .projects-grid, .edu-grid, .soft-grid').forEach(grid => {
-    grid.querySelectorAll('.fade-in').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 60}ms`;
-    });
-  });
+(function(){"use strict";
+var rm=matchMedia("(prefers-reduced-motion: reduce)").matches,io="IntersectionObserver" in window;
+var h=document.querySelector(".site-header");
+function sc(){h.classList.toggle("scrolled",scrollY>8)}addEventListener("scroll",sc,{passive:true});sc();
+var t=document.querySelector(".nav-toggle"),m=document.getElementById("nav-menu");
+t.addEventListener("click",function(){t.setAttribute("aria-expanded",m.classList.toggle("open"))});
+m.addEventListener("click",function(e){if(e.target.closest("a")){m.classList.remove("open");t.setAttribute("aria-expanded","false")}});
+var ls=[].slice.call(m.querySelectorAll("a[href^='#']"));
+if(io){var spy=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)ls.forEach(function(a){a.setAttribute("aria-current",a.getAttribute("href")==="#"+x.target.id)})})},{rootMargin:"-40% 0px -55% 0px"});
+ls.forEach(function(a){var s=document.querySelector(a.getAttribute("href"));if(s)spy.observe(s)})}
+var rv=document.querySelectorAll(".reveal");
+if(rm||!io)rv.forEach(function(e){e.classList.add("visible")});
+else{var o=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("visible");o.unobserve(x.target)}})},{threshold:.12});rv.forEach(function(e){o.observe(e)})}
+var ns=document.querySelectorAll(".num[data-to]");
+function run(el){var to=+el.dataset.to,suf=el.dataset.suf||"",s=null;function f(ts){s=s||ts;var p=Math.min((ts-s)/1200,1);el.textContent=Math.round((1-Math.pow(1-p,3))*to)+suf;if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+if(!rm&&io){var c=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){run(x.target);c.unobserve(x.target)}})},{threshold:.4});ns.forEach(function(e){c.observe(e)})}
+})();
 </script>
-
 </body>
 </html>
